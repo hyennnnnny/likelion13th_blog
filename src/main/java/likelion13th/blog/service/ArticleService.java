@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class ArticleService {
@@ -39,5 +40,15 @@ public class ArticleService {
 
     public List<Article> findAll() {
         return articleDB;
+    }
+
+    public Article findById(Long id) {
+        for(Article article: articleDB){
+            if(article.getId().equals(id)) {
+                return article;
+            }
+        }
+
+        throw new NoSuchElementException("해당 ID의 게시글을 찾을 수 없습니다.");
     }
 }

@@ -39,4 +39,15 @@ public class ArticleController {
                 .status(HttpStatus.OK)
                 .body(articles);
     }
+
+    // 게시글 1개 조회
+    @GetMapping("/{id}")
+    public ResponseEntity<Article> getArticle(@PathVariable Long id) {
+        Article article = articleService.findById(id);
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(article);
+    }
+
 }
