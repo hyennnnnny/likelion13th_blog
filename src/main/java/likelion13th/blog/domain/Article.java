@@ -86,4 +86,15 @@ public class Article {
         this.title=title;
         this.content=content;
     }
+
+    @Column(nullable = false)
+    private int commentCount;
+
+    public void increaseCommentCount() {
+        commentCount++;
+    }
+
+    public void decreaseCommentCount() {
+        if(commentCount>0) commentCount--;
+    }
 }
