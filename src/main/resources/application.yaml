@@ -1,5 +1,4 @@
-server:
-  port: 8080 # 내장 톰캣 포트번호
+
 
 spring:
   # H2 Database 설정
